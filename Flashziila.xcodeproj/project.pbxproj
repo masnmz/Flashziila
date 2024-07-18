@@ -11,6 +11,8 @@
 		D59340332C416EFA0010BEEC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59340322C416EFA0010BEEC /* ContentView.swift */; };
 		D59340352C416EFB0010BEEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D59340342C416EFB0010BEEC /* Assets.xcassets */; };
 		D59340382C416EFB0010BEEC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D59340372C416EFB0010BEEC /* Preview Assets.xcassets */; };
+		D593403F2C46D8F70010BEEC /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D593403E2C46D8F60010BEEC /* Card.swift */; };
+		D59340412C46DA430010BEEC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59340402C46DA430010BEEC /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		D59340322C416EFA0010BEEC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D59340342C416EFB0010BEEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D59340372C416EFB0010BEEC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D593403E2C46D8F60010BEEC /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		D59340402C46DA430010BEEC /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,8 @@
 		D593402F2C416EFA0010BEEC /* Flashziila */ = {
 			isa = PBXGroup;
 			children = (
+				D593403E2C46D8F60010BEEC /* Card.swift */,
+				D59340402C46DA430010BEEC /* CardView.swift */,
 				D59340302C416EFA0010BEEC /* FlashziilaApp.swift */,
 				D59340322C416EFA0010BEEC /* ContentView.swift */,
 				D59340342C416EFB0010BEEC /* Assets.xcassets */,
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D59340332C416EFA0010BEEC /* ContentView.swift in Sources */,
+				D593403F2C46D8F70010BEEC /* Card.swift in Sources */,
+				D59340412C46DA430010BEEC /* CardView.swift in Sources */,
 				D59340312C416EFA0010BEEC /* FlashziilaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,8 +286,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,8 +314,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

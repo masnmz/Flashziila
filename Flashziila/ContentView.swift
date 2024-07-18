@@ -7,27 +7,36 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    let timer = Timer.publish(every: 1, tolerance: 0.5, on: .main, in: .common).autoconnect()
-   @State private var counter = 0
-    
-    var body: some View {
-        Text("Hello World!")
-            .onReceive(timer) { time in
-                if counter == 5 {
-                    cancelTimer()
-                } else {
-                    print("The time is now \(time)")
-                    counter += 1
-                }
-                
-                
-                   
-            }
+extension View {
+    func stacked(at position: Int, in total: Int) -> some View {
+        let offset = Double(total-position)
+        return self.offset(y: offset * 10 )
     }
-    
-    func cancelTimer() {
-        timer.upstream.connect().cancel()
+}
+
+struct ContentView: View {
+    @State private var cards = Array<Card>(repeating: .example, count: 10)
+    var body: some View {
+        ZStack {
+            Image(.background)
+                .resizable()
+                .ignoresSafeArea()
+            VStack {
+                ZStack {
+                    ForEach(0..<cards.count, id: \.self) { index in
+                        CardView(card: cards[index]) {
+                            withAnimation {
+                                removeCard(at: index)
+                            }
+                        }
+                            .stacked(at: index, in: cards.count)
+                    }
+                }
+            }
+        }
+    }
+    func removeCard(at index: Int) {
+        cards.remove(at: index)
     }
 }
 
