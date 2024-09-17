@@ -7,30 +7,41 @@
 
 import SwiftUI
 
+struct CardBackgroundModifier: ViewModifier {
+    var offset: CGSize
+    var accessibilityDifferentiateWithoutColor: Bool
+
+    func body(content: Content) -> some View {
+        content
+            .background(
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(
+                        accessibilityDifferentiateWithoutColor
+                        ? .white
+                        : offset.width == 0
+                            ? Color.white
+                            : offset.width > 0
+                                ? Color.green
+                                : Color.red
+                    )
+            )
+    }
+}
+
 struct CardView: View {
     @Environment(\.accessibilityDifferentiateWithoutColor) var accessibilityDifferentiateWithoutColor
     @Environment(\.accessibilityVoiceOverEnabled) var accessibilityVoiceOverEnabled
     
     @State private var isShowingAnswer = false
     @State private var offset = CGSize.zero
-    
     let card: Card
     var removal: (() -> Void)? = nil
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 25)
-                .fill(
-                    accessibilityDifferentiateWithoutColor 
-                    ? . white
-                    : .white.opacity( 1 - Double(abs(offset.width / 50)))
-                )
-                .background(
-                    accessibilityDifferentiateWithoutColor
-                    ? nil
-                    : RoundedRectangle(cornerRadius: 25)
-                    .fill(offset.width > 0 ? .green : .red)
-                )
+                .fill(.white.opacity( 1 - Double(abs(offset.width / 50))))
+                .modifier(CardBackgroundModifier(offset: offset, accessibilityDifferentiateWithoutColor: accessibilityDifferentiateWithoutColor))
                 .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
             
             VStack {
@@ -46,7 +57,7 @@ struct CardView: View {
                     if isShowingAnswer {
                         Text(card.answer)
                             .font(.title)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(.blue)
                     }
                 }
             }
@@ -64,10 +75,12 @@ struct CardView: View {
                     offset = gesture.translation
                 }
                 .onEnded { _ in
-                    if abs(offset.width) > 100 {
+                    if offset.width > 100 {
                         removal?()
                     } else {
                         offset = .zero
+                        isShowingAnswer = false
+                        
                     }
                 }
             )
